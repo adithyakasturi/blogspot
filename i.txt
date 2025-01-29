@@ -1,0 +1,28 @@
+<div class="bg-gray-200 p-6 mt-6 rounded-lg shadow-lg">
+            <h2 class="text-xl font-bold mb-4">Add a New Blog</h2>
+            <form>
+                <div class="mb-4">
+                    <label for="title" class="block text-gray-700 font-medium">Blog Title</label>
+                    <input
+                        type="text"
+                        id="title"
+                        class="w-full border border-gray-300 rounded-md p-2"
+                        placeholder="Enter the title"
+                    />
+                </div>
+                <div class="mb-4">
+                    <label for="description" class="block text-gray-700 font-medium">Blog Description</label>
+                    <textarea
+                        id="description"
+                        class="w-full border border-gray-300 rounded-md p-2"
+                        placeholder="Enter the description"
+                    ></textarea>
+                </div>
+                <button
+                    type="submit"
+                    class="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600"
+                >
+                    Add Blog
+                </button>
+            </form>
+        </div>
