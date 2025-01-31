@@ -7,41 +7,38 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="blog-details.js"></script>
 </head>
-<body class="bg-[#000000] ">
+<body class="bg-black min-h-screen flex flex-col items-center">
 
-    <nav>
+    <nav class="w-full bg-black">
         <div class="container mx-auto px-6">
-            <div class="flex justify-between  py-3">
+            <div class="flex justify-between py-3">
                 <a href="index.html">
                     <div class="flex -ml-20">
-                        <img src="images\Untitled.png" class="h-14">
+                        <img src="images/Untitled.png" class="h-14">
                         <h1 class="text-white text-3xl py-2 ml-2">BlogSpot</h1>
                     </div>
                 </a>
-    
-                <div class="flex space-x-20 ml-20  flex-grow">
+                <div class="hidden md:flex space-x-10 flex-grow justify-center">
                     <a href="index.html" class="text-xl font-semibold text-white flex items-center">
-                        <img src="images\home_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.png" alt="Home" class="h-6 w-6 mr-1.5">
+                        <img src="images/home_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.png" alt="Home" class="h-6 w-6 mr-1.5">
                         Home
                     </a>
                     <a href="#" class="text-xl text-white font-semibold flex items-center">
-                        <img src="images\Screenshot 2025-01-28 134753.png" alt="About" class="h-11 w-12 mr-2">
+                        <img src="images/Screenshot 2025-01-28 134753.png" alt="About" class="h-11 w-12 mr-2">
                         About
                     </a>
                     <a href="#" class="text-xl text-white font-semibold flex items-center">
-                        <img src="images\contact_page_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.png" alt="Contact" class="h-5 w-5.5 mr-2">
+                        <img src="images/contact_page_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.png" alt="Contact" class="h-5 w-5.5 mr-2">
                         Contact
                     </a>
                     <a href="#" class="text-xl text-white font-semibold flex items-center">
-                        <img src="images\login_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.png" alt="Login" class="h-5 w-5 mr-2">
+                        <img src="images/login_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.png" alt="Login" class="h-5 w-5 mr-2">
                         Login
                     </a>
                 </div>
-                <div>
-                    <button>
-                        <img src="images\menu_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.png" alt="Menu" class="h-6 w-6 mt-4 ml-20">
-                    </button>
-                </div>
+                <button class="md:hidden">
+                    <img src="images/menu_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.png" alt="Menu" class="h-6 w-6 mt-4">
+                </button>
             </div>
         </div>
     </nav>
