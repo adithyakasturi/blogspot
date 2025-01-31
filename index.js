@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         <img src="images/visibility_24dp_000000_FILL0_wght400_GRAD0_opsz24.png" class="h-5 w-5 mr-2" alt="Views">
                         <span>${blog.views}</span>
                     </div>
-                    <button onclick="deleteblog" class="mb-6  py-2 rounded-lg mt-6 edit-btn">
+                    <button class="mb-6  py-2 rounded-lg mt-6 edit-btn">
                         <img src="images/edit_24dp_000000_FILL0_wght400_GRAD0_opsz24.png" class="h-6 w-6 ">
                     </button>
                     <button onclick="deleteblog" class="mb-6  py-2 rounded-lg mt-6 delete-btn">
@@ -45,7 +45,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const editBtn = blogElement.querySelector('.edit-btn');
         editBtn.addEventListener('click', function(e) {
             e.preventDefault(); 
-            window.location.href="newblog.html?id=${index}";
+            window.location.href=`newblog.html?id=${index}`;
         });
 
         blogContainer.appendChild(blogElement);

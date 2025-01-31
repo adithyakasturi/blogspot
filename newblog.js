@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded",function(){
     document.getElementById('description').value=blog.description;
     document.getElementById('author').value=blog.author;
     
-    document.getElementById('blogform').addEventListener('submit',function(){
+    document.getElementById('blogform').addEventListener('submit',function(e){
         e.preventDefault();
         const updatedtitle = document.getElementById('title').value.trim();
         const updateddescription = document.getElementById('description').value.trim();
@@ -21,15 +21,33 @@ document.addEventListener("DOMContentLoaded",function(){
             alert("Both title and description are required!");
             return;
         }
+        const updatedImage =document.getElementById('image').files[0];
+        const reader = new FileReader();
+        reader.onload = function(event){
+            const updatedImageBase64 = event.target.result;
+            const blogindex=parseInt(blogId,10);
+            blogs[blogindex]={
+                title: updatedtitle,
+                description: updateddescription,
+                author: updatedauthor,
+                image:updatedImageBase64 || blog.image
+                }
+            localStorage.setItem('blogs' , JSON.stringify(blogs));
+            window.location.href=`blog-details.html?id=${blogId}`;
+        };
+        if(updatedImage){
+            reader.readAsDataURL(updatedImage);
+        }
+        else{
+            blogs[blogId]=blog.image;
+            localStorage.setItem('blogs',JSON.stringify(blogs));
+            window.location.href=`blog-details.html?id=${blogId}`;
 
-        blog.title=updatedtitle;
-        blog.description=updateddescription;
-        blog.author=updatedauthor;
-        localStorage.setItem('blogs' , JSON.stringify(blogs));
-        window.location.href="blog-deatils.html?id=${blogId}";
+        }
+        
 
 
-    })
+    });
 
     }
     else{
@@ -48,13 +66,22 @@ document.addEventListener("DOMContentLoaded",function(){
             }
         
             const newBlog = { title, description, author};
-        
-            const blogs = JSON.parse(localStorage.getItem('blogs')) || [];
-            blogs.push(newBlog);
-        
-            localStorage.setItem('blogs', JSON.stringify(blogs));
-        
-            window.location.href = 'blog-details.html?id=${blogId}';
+            if (imageFile){
+                const reader= new FileReader();
+                reader.onload = function(event){
+                    newBlog.image=event.target.result;
+                    const blogs= JSON.parse(localStorage.getItem('blogs')) ||[];
+                    blogs.push(newblog);
+                    localStorage.setItem('blogs',JSON.stringify(blogs));
+                    window.location.href = `blog-details.html?id=${blogs.length -1}`;
+                }
+            }
+            else{
+                const blogs = JSON.parse(localStorage.getItem('blogs')) || [];
+                blogs.push(newBlog);
+                localStorage.setItem('blogs', JSON.stringify(blogs));
+                window.location.href = `blog-details.html?id=${blogs.length -1}`;
+            }
         });
     }
 })
